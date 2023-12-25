@@ -4,7 +4,7 @@ const links = [
 	{ href: '/client', label: 'client' },
 	{ href: '/drinks', label: 'drinks' },
 	{ href: '/tasks', label: 'tasks' },
-	{ href: '/query', label: 'query' },
+	{ href: '/prisma-example', label: 'prisma' },
 ];
 
 const Header = () => {
@@ -17,10 +17,7 @@ const Header = () => {
 				<ul className='menu menu-horizontal md:ml-8'>
 					{links.map((monk) => (
 						<li key={monk.href}>
-							<Link
-								href={monk.href}
-								className='capitalize'
-							>
+							<Link href={monk.href} className='capitalize'>
 								{monk.label}
 							</Link>
 						</li>
