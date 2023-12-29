@@ -1,19 +1,16 @@
 import Link from 'next/link';
-import prisma from '../services/db';
 import DeleteForm from './DeleteForm';
+import { getAllTasks } from '../services/actions';
 
 const TaskList = async () => {
-	const tasks = await prisma.task.findMany({
-		orderBy: {
-			createdAt: 'desc',
-		},
-	});
+	const tasks = await getAllTasks();
 
 	if (tasks.length === 0) {
 		return (
 			<h2 className='mt-8 text-lg font-medium'>No tasks to show...</h2>
 		);
 	}
+	
 	return (
 		<ul className='mt-8'>
 			{tasks.map((task) => (
