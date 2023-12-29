@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import prisma from '../../services/db';
 
 const prismaHandlers = async () => {
