@@ -41,7 +41,7 @@ export const createTaskCustom = async (prevState, formData) => {
 	} catch (error) {
 		const errorMessage =
 			error.errors?.[0]?.message || 'Error creating task';
-		return { message: errorMessage };
+		return { message: 'Error creating task', toastError: errorMessage };
 	}
 };
 
