@@ -1,7 +1,7 @@
 'use client';
 
 import { createTaskCustom } from '../services/actions';
-import { useFormStatus } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 
 const SubmitBtn = () => {
 	const { pending } = useFormStatus();
@@ -16,9 +16,16 @@ const SubmitBtn = () => {
 	);
 };
 
+const initialState = {
+	message: null,
+};
+
 const TaskFormCustom = () => {
+	const [state, formAction] = useFormState(createTaskCustom, initialState);
+
 	return (
-		<form action={createTaskCustom}>
+		<form action={formAction}>
+			{state.message ? <p className='mb-8 text-center'>{state.message}</p> : null}
 			<div className='w-full join'>
 				<input
 					type='text'
